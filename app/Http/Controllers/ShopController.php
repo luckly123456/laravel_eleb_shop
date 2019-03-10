@@ -9,6 +9,11 @@ class ShopController extends Controller
     //
     public function index()
     {
-        
+        return view('shops.index');
+    }
+
+    public function store()
+    {
+        return 'asd';
     }
 }

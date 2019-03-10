@@ -15,7 +15,7 @@ class LoginController extends Controller
     public function login()
     {
         if (Auth::check()){
-            return redirect()->route('sign.index');
+            return redirect()->route('shops.index');
         }
         return view('login/login');
     }
@@ -29,7 +29,7 @@ class LoginController extends Controller
                 'password' => 'required',
                 'captcha' => 'required|captcha',
             ],
-            [//错误提示信息
+            [
                 'name.required' => '名称不能为空',
                 'password.required' => '密码不能为空',
                 'captcha.required' => '验证码不能为空',
@@ -45,10 +45,10 @@ class LoginController extends Controller
             'name' => $request->name,
             'password' => $request->password
         ], $request->has('rememberMe'))
-        ) {//账号密码正确 ，创建会话（保存当前用户的信息到session）
-            $user = \DB::table('users')->where('name', '=',$request->name)->get();
-            return redirect()->intended(route('shops.index'))->with('success', '登录成功');
-        } else {//账号密码不正确
+        ) {
+
+            return redirect()->intended(route('Menucategories.index'))->with('success', '登录成功');
+        } else {
             return back()->with('danger', '账号密码不正确');
         }
     }
@@ -92,5 +92,12 @@ class LoginController extends Controller
             'shop_id'=>$request->shop_id,
         ]);
         return redirect()->route('login')->with('success','注册成功');
+    }
+
+    //用户注销
+    public function destroy()
+    {
+        Auth::logout();
+        return redirect()->route('login')->with('success','您已安全退出');
     }
 }

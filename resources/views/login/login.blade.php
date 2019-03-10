@@ -1,17 +1,18 @@
 @extends('layout.app')
 
 @section('contents')
-    <form method="post" action="">
+    <h1>商家登陆</h1>
+    <form method="post" action="{{route('login')}}">
         {{ csrf_field() }}
 
         <div class="form-group">
             <label for="email">用户名：</label>
-            <input type="text" name="name" class="form-control" value="{{ old('name') }}">
+            <input type="text" name="name" class="form-control" >
         </div>
 
         <div class="form-group">
             <label for="password">密码：</label>
-            <input type="password" name="password" class="form-control" value="{{ old('password') }}">
+            <input type="password" name="password" class="form-control">
         </div>
         <div class="form-group">
             <label>验证码</label>

@@ -8,26 +8,39 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Brand</a>
+            <a class="navbar-brand" href="#">饿了吧</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Link</a></li>
+                <li class="active"><a href="#">商家 <span class="sr-only">(current)</span></a></li>
+                {{--<li><a href="#">Link</a></li>--}}
+                {{--<li class="dropdown">--}}
+                    {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">商家信息管理 <span class="caret"></span></a>--}}
+                    {{--<ul class="dropdown-menu">--}}
+                        {{--<li><a href="#">添加学生</a></li>--}}
+                        {{--<li><a href="#">学生列表</a></li>--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">学生管理 <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">菜品管理 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">添加学生</a></li>
-                        <li><a href="#">学生列表</a></li>
+                        <li><a href="{{route('menucategories.index')}}">菜品分类</a></li>
+                        <li><a href="{{route('menus.index')}}">菜品</a></li>
+                        <li><a href="{{route('activitys.index')}}">活动</a></li>
+                        <li><a href="{{route('orders.index')}}">订单</a></li>
+                        <li><a href="{{route('orders.statistics')}}">订单统计</a></li>
+                        <li><a href="{{route('orders.menustatisticsd')}}">菜品销量</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">文章管理 <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">活动 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">添加文章</a></li>
-                        <li><a href="#">文章列表</a></li>
+                        <li><a href="{{route('events.index')}}">参加活动</a></li>
+                        <li><a href="{{route('events.part')}}">我参加的活动</a></li>
+                        <li><a href="{{route('events.prize')}}">中奖</a></li>
+
                     </ul>
                 </li>
             </ul>
@@ -47,10 +60,10 @@
                         <span class="glyphicon glyphicon-user"></span>
                          <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">个人中心</a></li>
-                        <li><a href="#">修改密码</a></li>
+                        <li><a href="{{route('users.index')}}">个人中心</a></li>
+                        <li><a href="{{route('users.edit')}}">修改密码</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="">退出登录</a></li>
+                        <li><a href="{{route('logout')}}">退出登录</a></li>
                     </ul>
                 </li>
                 @endauth
